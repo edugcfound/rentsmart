@@ -1,0 +1,53 @@
+# Testes automatizados (unittest) — saída real
+# Executado em: 2026-11-23 07:38:08 | Python 3.14.6
+# Comando: python -m unittest discover -s tests -t . -v
+
+test_2_quartos_soma_200 (tests.test_imoveis.TestApartamento.test_2_quartos_soma_200) ... ok
+test_base_1_quarto_com_criancas (tests.test_imoveis.TestApartamento.test_base_1_quarto_com_criancas) ... ok
+test_com_criancas_nao_tem_desconto (tests.test_imoveis.TestApartamento.test_com_criancas_nao_tem_desconto) ... ok
+test_desconto_5_porcento_sem_criancas_so_base (tests.test_imoveis.TestApartamento.test_desconto_5_porcento_sem_criancas_so_base) ... ok
+test_desconto_aplicado_depois_dos_adicionais (tests.test_imoveis.TestApartamento.test_desconto_aplicado_depois_dos_adicionais) ... ok
+test_flags_precisam_ser_bool (tests.test_imoveis.TestApartamento.test_flags_precisam_ser_bool) ... ok
+test_garagem_soma_300 (tests.test_imoveis.TestApartamento.test_garagem_soma_300) ... ok
+test_quartos_invalidos (tests.test_imoveis.TestApartamento.test_quartos_invalidos) ... ok
+test_2_quartos_e_garagem (tests.test_imoveis.TestCasa.test_2_quartos_e_garagem) ... ok
+test_2_quartos_soma_250 (tests.test_imoveis.TestCasa.test_2_quartos_soma_250) ... ok
+test_base (tests.test_imoveis.TestCasa.test_base) ... ok
+test_casa_nao_tem_desconto_por_criancas (tests.test_imoveis.TestCasa.test_casa_nao_tem_desconto_por_criancas) ... ok
+test_composicao_lista_cada_linha (tests.test_imoveis.TestCasa.test_composicao_lista_cada_linha) ... ok
+test_base_sem_estacionamento (tests.test_imoveis.TestEstudio.test_base_sem_estacionamento) ... ok
+test_desligar_pacote_zera_vagas_extras (tests.test_imoveis.TestEstudio.test_desligar_pacote_zera_vagas_extras) ... ok
+test_estudio_nao_tem_quartos_nem_garagem (tests.test_imoveis.TestEstudio.test_estudio_nao_tem_quartos_nem_garagem) ... ok
+test_pacote_2_vagas (tests.test_imoveis.TestEstudio.test_pacote_2_vagas) ... ok
+test_vagas_adicionais_60_cada (tests.test_imoveis.TestEstudio.test_vagas_adicionais_60_cada) ... ok
+test_vagas_adicionais_exigem_pacote (tests.test_imoveis.TestEstudio.test_vagas_adicionais_exigem_pacote) ... ok
+test_vagas_negativas_ou_nao_inteiras (tests.test_imoveis.TestEstudio.test_vagas_negativas_ou_nao_inteiras) ... ok
+test_imovel_e_abstrato (tests.test_imoveis.TestHierarquia.test_imovel_e_abstrato) ... ok
+test_polimorfismo_mesmo_metodo_resultados_diferentes (tests.test_imoveis.TestHierarquia.test_polimorfismo_mesmo_metodo_resultados_diferentes) ... ok
+test_apartamento_completo (tests.test_interface.TestInterfaceConsole.test_apartamento_completo) ... ok
+test_casa_nao_pergunta_sobre_criancas (tests.test_interface.TestInterfaceConsole.test_casa_nao_pergunta_sobre_criancas) ... ok
+test_entradas_invalidas_sao_repetidas (tests.test_interface.TestInterfaceConsole.test_entradas_invalidas_sao_repetidas) ... ok
+test_estudio_nao_pergunta_quartos (tests.test_interface.TestInterfaceConsole.test_estudio_nao_pergunta_quartos) ... ok
+test_estudio_sem_pacote_nao_pergunta_vagas_extras (tests.test_interface.TestInterfaceConsole.test_estudio_sem_pacote_nao_pergunta_vagas_extras) ... ok
+test_executar_gera_csv_e_pode_repetir (tests.test_interface.TestInterfaceConsole.test_executar_gera_csv_e_pode_repetir) ... ok
+test_caminho_personalizado (tests.test_orcamento_e_csv.TestExportadorCSV.test_caminho_personalizado) ... ok
+test_csv_com_cabecalho_12_meses_e_total (tests.test_orcamento_e_csv.TestExportadorCSV.test_csv_com_cabecalho_12_meses_e_total) ... ok
+test_formatar_brl (tests.test_orcamento_e_csv.TestFormatacao.test_formatar_brl) ... ok
+test_aluguel_separado_da_taxa (tests.test_orcamento_e_csv.TestOrcamento.test_aluguel_separado_da_taxa) ... ok
+test_projecao_tem_12_meses (tests.test_orcamento_e_csv.TestOrcamento.test_projecao_tem_12_meses) ... ok
+test_resumo_mostra_composicao_e_taxa_separada (tests.test_orcamento_e_csv.TestOrcamento.test_resumo_mostra_composicao_e_taxa_separada) ... ok
+test_taxa_so_nos_meses_parcelados (tests.test_orcamento_e_csv.TestOrcamento.test_taxa_so_nos_meses_parcelados) ... ok
+test_totais (tests.test_orcamento_e_csv.TestOrcamento.test_totais) ... ok
+test_validacoes (tests.test_orcamento_e_csv.TestOrcamento.test_validacoes) ... ok
+test_3x_distribui_centavos (tests.test_taxa_contratual.TestTaxaContratual.test_3x_distribui_centavos) ... ok
+test_5x_de_400 (tests.test_taxa_contratual.TestTaxaContratual.test_5x_de_400) ... ok
+test_descricao (tests.test_taxa_contratual.TestTaxaContratual.test_descricao) ... ok
+test_limite_de_parcelas (tests.test_taxa_contratual.TestTaxaContratual.test_limite_de_parcelas) ... ok
+test_parcela_do_mes (tests.test_taxa_contratual.TestTaxaContratual.test_parcela_do_mes) ... ok
+test_parcelas_somam_2000_em_todas_as_opcoes (tests.test_taxa_contratual.TestTaxaContratual.test_parcelas_somam_2000_em_todas_as_opcoes) ... ok
+test_valor_total_2000 (tests.test_taxa_contratual.TestTaxaContratual.test_valor_total_2000) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 0.026s
+
+OK

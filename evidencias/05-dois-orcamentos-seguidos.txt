@@ -1,0 +1,100 @@
+# Cenário: Dois orçamentos na mesma execução (casa simples 1x e estúdio sem estacionamento 4x)
+# Executado em: 2026-11-23 07:37:19 | Python 3.14.6 | Windows
+# Comando: printf '<entradas>' | python main.py
+# Entradas enviadas (uma por linha): Elisa Prado|2|1|N|1|S|Fabio Reis|3|N|4|N|
+# Abaixo, a saída real do programa, sem edição. As respostas digitadas não aparecem porque chegaram pelo pipe.
+
+================================================================
+   RentSmart | Sistema de Orçamento de Locação | R.M Imóveis    
+================================================================
+Nome do cliente: 
+Tipos de imóvel:
+  1 - Apartamento (base R$ 700,00)
+  2 - Casa        (base R$ 900,00)
+  3 - Estúdio     (base R$ 1.200,00)
+Escolha o tipo de imóvel (1, 2 ou 3): Quantos quartos? (1 ou 2): Deseja vaga de garagem (R$ 300,00)? (S/N): 
+Taxa contratual de R$ 2.000,00. Em quantas parcelas? (1 a 5): 
+================================================================
+         RentSmart | R.M Imóveis | ORÇAMENTO DE LOCAÇÃO         
+================================================================
+Cliente: Elisa Prado
+Imóvel : Casa com 1 quarto, sem garagem
+----------------------------------------------------------------
+1) COMPOSIÇÃO DO ALUGUEL MENSAL
+  Aluguel-base (casa)                                  R$ 900,00
+  ALUGUEL MENSAL                                       R$ 900,00
+----------------------------------------------------------------
+2) TAXA CONTRATUAL (cobrada à parte, NÃO faz parte do aluguel)
+  Valor total da taxa                                R$ 2.000,00
+  Parcelamento escolhido: À vista (1x)
+  Cobrança: no mês 1 do contrato
+----------------------------------------------------------------
+3) PROJEÇÃO DOS 12 PRIMEIROS MESES
+  Mês        Aluguel         Taxa (parc.)    Total do mês
+    1      R$ 900,00      R$ 2.000,00 1/1     R$ 2.900,00
+    2      R$ 900,00                    -       R$ 900,00
+    3      R$ 900,00                    -       R$ 900,00
+    4      R$ 900,00                    -       R$ 900,00
+    5      R$ 900,00                    -       R$ 900,00
+    6      R$ 900,00                    -       R$ 900,00
+    7      R$ 900,00                    -       R$ 900,00
+    8      R$ 900,00                    -       R$ 900,00
+    9      R$ 900,00                    -       R$ 900,00
+   10      R$ 900,00                    -       R$ 900,00
+   11      R$ 900,00                    -       R$ 900,00
+   12      R$ 900,00                    -       R$ 900,00
+----------------------------------------------------------------
+  Total de aluguel em 12 meses                      R$ 10.800,00
+  Total da taxa contratual                           R$ 2.000,00
+  TOTAL PREVISTO NO 1º ANO                          R$ 12.800,00
+================================================================
+
+Projeção de 12 meses salva em: saida\projecao_12_meses_elisa_prado_casa.csv
+
+Deseja fazer outro orçamento? (S/N): 
+Nome do cliente: 
+Tipos de imóvel:
+  1 - Apartamento (base R$ 700,00)
+  2 - Casa        (base R$ 900,00)
+  3 - Estúdio     (base R$ 1.200,00)
+Escolha o tipo de imóvel (1, 2 ou 3): Deseja o pacote de estacionamento com 2 vagas (R$ 250,00)? (S/N): 
+Taxa contratual de R$ 2.000,00. Em quantas parcelas? (1 a 5): 
+================================================================
+         RentSmart | R.M Imóveis | ORÇAMENTO DE LOCAÇÃO         
+================================================================
+Cliente: Fabio Reis
+Imóvel : Estúdio, sem estacionamento
+----------------------------------------------------------------
+1) COMPOSIÇÃO DO ALUGUEL MENSAL
+  Aluguel-base (estúdio)                             R$ 1.200,00
+  ALUGUEL MENSAL                                     R$ 1.200,00
+----------------------------------------------------------------
+2) TAXA CONTRATUAL (cobrada à parte, NÃO faz parte do aluguel)
+  Valor total da taxa                                R$ 2.000,00
+  Parcelamento escolhido: 4x de R$ 500,00 sem juros
+  Cobrança: do mês 1 ao mês 4 do contrato
+----------------------------------------------------------------
+3) PROJEÇÃO DOS 12 PRIMEIROS MESES
+  Mês        Aluguel         Taxa (parc.)    Total do mês
+    1    R$ 1.200,00        R$ 500,00 1/4     R$ 1.700,00
+    2    R$ 1.200,00        R$ 500,00 2/4     R$ 1.700,00
+    3    R$ 1.200,00        R$ 500,00 3/4     R$ 1.700,00
+    4    R$ 1.200,00        R$ 500,00 4/4     R$ 1.700,00
+    5    R$ 1.200,00                    -     R$ 1.200,00
+    6    R$ 1.200,00                    -     R$ 1.200,00
+    7    R$ 1.200,00                    -     R$ 1.200,00
+    8    R$ 1.200,00                    -     R$ 1.200,00
+    9    R$ 1.200,00                    -     R$ 1.200,00
+   10    R$ 1.200,00                    -     R$ 1.200,00
+   11    R$ 1.200,00                    -     R$ 1.200,00
+   12    R$ 1.200,00                    -     R$ 1.200,00
+----------------------------------------------------------------
+  Total de aluguel em 12 meses                      R$ 14.400,00
+  Total da taxa contratual                           R$ 2.000,00
+  TOTAL PREVISTO NO 1º ANO                          R$ 16.400,00
+================================================================
+
+Projeção de 12 meses salva em: saida\projecao_12_meses_fabio_reis_estudio.csv
+
+Deseja fazer outro orçamento? (S/N): Obrigado por usar o RentSmart!
+# Código de saída: 0

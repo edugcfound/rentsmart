@@ -1,0 +1,58 @@
+# Cenário: Casa, 2 quartos, garagem, taxa em 3x
+# Executado em: 2026-11-23 07:37:18 | Python 3.14.6 | Windows
+# Comando: printf '<entradas>' | python main.py
+# Entradas enviadas (uma por linha): Bruno Lima|2|2|S|3|N|
+# Abaixo, a saída real do programa, sem edição. As respostas digitadas não aparecem porque chegaram pelo pipe.
+
+================================================================
+   RentSmart | Sistema de Orçamento de Locação | R.M Imóveis    
+================================================================
+Nome do cliente: 
+Tipos de imóvel:
+  1 - Apartamento (base R$ 700,00)
+  2 - Casa        (base R$ 900,00)
+  3 - Estúdio     (base R$ 1.200,00)
+Escolha o tipo de imóvel (1, 2 ou 3): Quantos quartos? (1 ou 2): Deseja vaga de garagem (R$ 300,00)? (S/N): 
+Taxa contratual de R$ 2.000,00. Em quantas parcelas? (1 a 5): 
+================================================================
+         RentSmart | R.M Imóveis | ORÇAMENTO DE LOCAÇÃO         
+================================================================
+Cliente: Bruno Lima
+Imóvel : Casa com 2 quartos, com vaga de garagem
+----------------------------------------------------------------
+1) COMPOSIÇÃO DO ALUGUEL MENSAL
+  Aluguel-base (casa)                                  R$ 900,00
+  (+) Adicional: 2º quarto                             R$ 250,00
+  (+) Adicional: 1 vaga de garagem                     R$ 300,00
+  = Subtotal (base + adicionais)                     R$ 1.450,00
+  ALUGUEL MENSAL                                     R$ 1.450,00
+----------------------------------------------------------------
+2) TAXA CONTRATUAL (cobrada à parte, NÃO faz parte do aluguel)
+  Valor total da taxa                                R$ 2.000,00
+  Parcelamento escolhido: 3x sem juros (R$ 666,67 + R$ 666,67 + R$ 666,66)
+  Cobrança: do mês 1 ao mês 3 do contrato
+----------------------------------------------------------------
+3) PROJEÇÃO DOS 12 PRIMEIROS MESES
+  Mês        Aluguel         Taxa (parc.)    Total do mês
+    1    R$ 1.450,00        R$ 666,67 1/3     R$ 2.116,67
+    2    R$ 1.450,00        R$ 666,67 2/3     R$ 2.116,67
+    3    R$ 1.450,00        R$ 666,66 3/3     R$ 2.116,66
+    4    R$ 1.450,00                    -     R$ 1.450,00
+    5    R$ 1.450,00                    -     R$ 1.450,00
+    6    R$ 1.450,00                    -     R$ 1.450,00
+    7    R$ 1.450,00                    -     R$ 1.450,00
+    8    R$ 1.450,00                    -     R$ 1.450,00
+    9    R$ 1.450,00                    -     R$ 1.450,00
+   10    R$ 1.450,00                    -     R$ 1.450,00
+   11    R$ 1.450,00                    -     R$ 1.450,00
+   12    R$ 1.450,00                    -     R$ 1.450,00
+----------------------------------------------------------------
+  Total de aluguel em 12 meses                      R$ 17.400,00
+  Total da taxa contratual                           R$ 2.000,00
+  TOTAL PREVISTO NO 1º ANO                          R$ 19.400,00
+================================================================
+
+Projeção de 12 meses salva em: saida\projecao_12_meses_bruno_lima_casa.csv
+
+Deseja fazer outro orçamento? (S/N): Obrigado por usar o RentSmart!
+# Código de saída: 0

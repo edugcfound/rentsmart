@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Parte Teórica – RentSmart – Eduardo Gomes Costa</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 10.5pt; line-height: 1.45; color: #111; margin: 0; }
+  h1 { font-size: 15pt; color: #1f3a5f; border-bottom: 2px solid #1f3a5f; padding-bottom: 3px; margin: 0 0 10px; page-break-after: avoid; }
+  h2 { font-size: 12pt; color: #1f3a5f; margin: 16px 0 6px; page-break-after: avoid; }
+  p { margin: 0 0 8px; text-align: justify; }
+  ul, ol { margin: 0 0 8px 18px; padding: 0; }
+  li { margin: 2px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 6px 0 12px; font-size: 9.5pt; page-break-inside: avoid; }
+  th, td { border: 1px solid #999; padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: #e3e9f1; }
+  tr { page-break-inside: avoid; }
+  td.num { text-align: right; white-space: nowrap; }
+  code, pre { font-family: Consolas, "Courier New", monospace; font-size: 9pt; }
+  pre { background: #f2f2f2; border: 1px solid #ccc; padding: 6px 8px; white-space: pre-wrap; margin: 4px 0 10px; page-break-inside: avoid; }
+  figure { margin: 8px 0 14px; text-align: center; page-break-inside: avoid; }
+  figcaption { font-size: 9pt; color: #333; margin-top: 4px; }
+  .sec { page-break-before: always; }
+  .capa { height: 247mm; display: flex; flex-direction: column; justify-content: space-between; text-align: center; }
+  .capa .topo { font-size: 13pt; font-weight: bold; line-height: 1.6; }
+  .capa .titulo { font-size: 18pt; font-weight: bold; color: #1f3a5f; line-height: 1.4; }
+  .capa .sub { font-size: 12pt; margin-top: 10px; }
+  .capa .dados { font-size: 11.5pt; line-height: 1.9; }
+  .preencher { background: #fff3a0; padding: 0 4px; }
+  .sumario { margin-left: 28px; font-size: 11pt; }
+  .sumario li { margin: 4px 0; padding-left: 4px; }
+  .nota { font-size: 9pt; color: #444; }
+</style>
+</head>
+<body>
+
+<div class="capa">
+  <div class="topo">UNIFECAF<br>Bacharelado em Ciência da Computação<br>Algorithmic Thinking &amp; Introduction to Object-Oriented Programming</div>
+  <div>
+    <div class="titulo">RentSmart — Sistema de Orçamento de Locação<br>com Python e Orientação a Objetos</div>
+    <div class="sub">Parte Teórica: análise do problema, fluxograma e estrutura de classes</div>
+  </div>
+  <div class="dados">
+    Aluno: <b>Eduardo Gomes Costa</b><br>
+    RA: 225263 &nbsp;|&nbsp; Turma: CDC-2NA<br>
+    Professor(a): <span class="preencher">preencher</span>
+  </div>
+  <div class="topo">Taboão da Serra – SP<br>2026</div>
+</div>
+
+<div class="sec">
+<h1>Sumário</h1>
+<ol class="sumario">
+  <li>Análise do problema e das regras de negócio</li>
+  <li>Entradas, processamentos e saídas</li>
+  <li>Fluxograma</li>
+  <li>Estrutura de classes</li>
+  <li>Pensamento algorítmico e Orientação a Objetos na solução</li>
+  <li>Testes e validação</li>
+  <li>Referências</li>
+</ol>
+</div>
+
+<!-- 1 -->
+<div class="sec">
+<h1>1. Análise do problema e das regras de negócio</h1>
+<p>A R.M Imóveis aluga casas, apartamentos e estúdios. Hoje os orçamentos são calculados à mão pelos
+atendentes, o que deixa o atendimento lento e abre espaço para erros na hora de somar adicionais,
+aplicar descontos e explicar a taxa de contrato. O RentSmart resolve isso: o atendente informa as
+características da locação e o sistema aplica as regras sozinho, explica como chegou ao valor e gera
+a projeção do primeiro ano em uma planilha (CSV).</p>
+<p>Lendo o enunciado, as regras se dividem em três grupos: o <b>aluguel-base</b> de cada tipo de
+imóvel, os <b>adicionais e descontos</b> mensais, e a <b>taxa contratual</b>, que é um custo à parte
+e não pode ser confundida com o aluguel.</p>
+
+<table>
+  <tr><th>Grupo</th><th>Regra do enunciado</th><th>Valor</th></tr>
+  <tr><td rowspan="3">Aluguel-base</td><td>Apartamento de 1 quarto</td><td class="num">R$ 700,00</td></tr>
+  <tr><td>Casa de 1 quarto</td><td class="num">R$ 900,00</td></tr>
+  <tr><td>Estúdio</td><td class="num">R$ 1.200,00</td></tr>
+  <tr><td rowspan="5">Adicionais mensais</td><td>Apartamento com 2 quartos</td><td class="num">+ R$ 200,00</td></tr>
+  <tr><td>Casa com 2 quartos</td><td class="num">+ R$ 250,00</td></tr>
+  <tr><td>Vaga de garagem (casa ou apartamento)</td><td class="num">+ R$ 300,00</td></tr>
+  <tr><td>Estúdio: pacote inicial de 2 vagas</td><td class="num">+ R$ 250,00</td></tr>
+  <tr><td>Estúdio: cada vaga além do pacote</td><td class="num">+ R$ 60,00</td></tr>
+  <tr><td>Desconto</td><td>Apartamento, cliente sem crianças: sobre o aluguel <b>após</b> os adicionais</td><td class="num">− 5%</td></tr>
+  <tr><td>Taxa contratual</td><td>Cobrada separadamente, em até 5 parcelas</td><td class="num">R$ 2.000,00</td></tr>
+</table>
+
+<h2>Pontos que o enunciado deixa em aberto</h2>
+<p>Algumas situações não estão descritas no texto. Para não inventar regra, cada uma foi resolvida
+pela leitura mais literal possível do enunciado:</p>
+<table>
+  <tr><th>Situação</th><th>Decisão adotada</th></tr>
+  <tr><td>Estúdio com 2 quartos ou com a vaga de R$ 300</td><td>Não existe. O enunciado só fala em 2 quartos para casa e apartamento, e diz que para o estúdio "a regra de estacionamento será diferente".</td></tr>
+  <tr><td>Vagas adicionais do estúdio sem o pacote</td><td>Não é permitido: as vagas adicionais complementam o "pacote inicial".</td></tr>
+  <tr><td>O desconto de 5% inclui a garagem?</td><td>Sim. O desconto vem "após a aplicação dos adicionais correspondentes", e o 2º quarto e a garagem são os adicionais do apartamento.</td></tr>
+  <tr><td>Juros no parcelamento da taxa</td><td>Não há; o enunciado não menciona juros.</td></tr>
+  <tr><td>Divisão com centavos (ex.: 3x)</td><td>O centavo que sobra vai para as primeiras parcelas: 666,67 + 666,67 + 666,66 = 2.000,00.</td></tr>
+  <tr><td>Meses em que a taxa é cobrada</td><td>Parcela 1 no mês 1, parcela 2 no mês 2, e assim por diante.</td></tr>
+  <tr><td>Formato do CSV</td><td>Separador ";" e vírgula decimal, para abrir direto no Excel em português.</td></tr>
+</table>
+</div>
+
+<!-- 2 -->
+<div class="sec">
+<h1>2. Entradas, processamentos e saídas</h1>
+<table>
+  <tr><th style="width:22%">Etapa</th><th>Conteúdo</th></tr>
+  <tr><td><b>Entradas</b><br><span class="nota">(digitadas pelo atendente)</span></td><td>
+    <ul>
+      <li>Nome do cliente (não pode ficar vazio);</li>
+      <li>Tipo de imóvel: 1 Apartamento, 2 Casa ou 3 Estúdio;</li>
+      <li>Casa ou apartamento: nº de quartos (1 ou 2) e vaga de garagem (S/N);</li>
+      <li>Apartamento: se o cliente possui crianças (S/N);</li>
+      <li>Estúdio: se quer o pacote de 2 vagas (S/N) e, se quiser, quantas vagas adicionais (inteiro ≥ 0);</li>
+      <li>Número de parcelas da taxa contratual (1 a 5);</li>
+      <li>Ao final, se deseja fazer outro orçamento (S/N).</li>
+    </ul></td></tr>
+  <tr><td><b>Validação</b></td><td>Cada resposta é conferida antes de seguir. Se for inválida (opção que não existe,
+    texto onde se espera número, número fora da faixa, "talvez" numa pergunta de S/N), o sistema mostra uma
+    mensagem iniciada por <code>[!]</code> e repete a mesma pergunta. Além disso, as próprias classes recusam
+    valores inválidos (lançam <code>ValueError</code>), então nem por código é possível montar um imóvel errado.</td></tr>
+  <tr><td><b>Processamento</b></td><td>
+    <ol>
+      <li>Criar o objeto do imóvel escolhido (<code>Apartamento</code>, <code>Casa</code> ou <code>Estudio</code>), a <code>TaxaContratual</code> e o <code>Orcamento</code>;</li>
+      <li>Subtotal = aluguel-base + adicionais do imóvel;</li>
+      <li>Se for apartamento e o cliente não tiver crianças: desconto = 5% do subtotal;</li>
+      <li>Aluguel mensal = subtotal − descontos;</li>
+      <li>Parcelas da taxa = R$ 2.000,00 ÷ nº de parcelas (em centavos, sem perder nenhum);</li>
+      <li>Para cada mês de 1 a 12: total do mês = aluguel + parcela da taxa (se o mês ≤ nº de parcelas); acumular.</li>
+    </ol></td></tr>
+  <tr><td><b>Saídas</b></td><td>
+    <ul>
+      <li>Resumo na tela, em três blocos: (1) composição do aluguel linha a linha; (2) taxa contratual
+        e parcelamento, separados do aluguel; (3) projeção dos 12 meses e totais do ano;</li>
+      <li>Arquivo CSV <code>saida/projecao_12_meses_&lt;cliente&gt;_&lt;tipo&gt;.csv</code> com as colunas
+        Mês, Aluguel mensal, Parcela da taxa, Nº da parcela, Total do mês e Total acumulado, mais uma linha TOTAL.</li>
+    </ul></td></tr>
+</table>
+</div>
+
+<!-- 3 -->
+<div class="sec">
+<h1>3. Fluxograma</h1>
+<p>O fluxograma mostra a ordem em que o programa pergunta, decide e calcula. As perguntas mudam conforme
+o tipo de imóvel: casa e apartamento perguntam quartos e garagem; só o apartamento pergunta sobre crianças;
+o estúdio pergunta apenas sobre estacionamento.</p>
+<figure>
+  <img src="../fluxograma.svg" style="height:200mm" alt="Fluxograma do RentSmart">
+  <figcaption>Figura 1 – Fluxograma da lógica do RentSmart</figcaption>
+</figure>
+</div>
+
+<!-- 4 -->
+<div class="sec">
+<h1>4. Estrutura de classes</h1>
+<p>A solução foi dividida em classes que representam as coisas do negócio (imóvel, taxa, orçamento) e
+classes que cuidam da comunicação (terminal e arquivo CSV). A hierarquia dos imóveis é:</p>
+<pre>Imovel (abstrata)              → cálculo comum: base + adicionais − descontos
+├── ImovelComQuartos (abstrata) → regra comum de 2º quarto e garagem (R$ 300)
+│   ├── Apartamento             → base 700, 2º quarto 200, desconto de 5% sem crianças
+│   └── Casa                    → base 900, 2º quarto 250
+└── Estudio                     → base 1.200, pacote de 2 vagas 250, vaga extra 60
+
+Orcamento   ── tem um ──▶ Imovel   e   ── tem uma ──▶ TaxaContratual
+InterfaceConsole ── cria ──▶ Orcamento     ExportadorCSV ── lê ──▶ Orcamento</pre>
+
+<table style="page-break-inside:auto; font-size:8.8pt">
+  <tr><th style="width:19%">Classe</th><th style="width:33%">Principais atributos</th><th>Principais métodos</th></tr>
+  <tr><td><code>Imovel</code><br><span class="nota">abstrata</span></td>
+      <td><code>NOME</code>, <code>ALUGUEL_BASE</code></td>
+      <td><code>descricao()</code> e <code>_calcular_adicionais()</code> (abstratos); <code>_calcular_descontos(subtotal)</code>;
+          <code>composicao()</code> (todas as linhas do aluguel); <code>subtotal()</code>; <code>valor_mensal()</code></td></tr>
+  <tr><td><code>ImovelComQuartos</code><br><span class="nota">abstrata</span></td>
+      <td><code>_quartos</code> (1 ou 2), <code>_garagem</code> (bool), <code>ADICIONAL_SEGUNDO_QUARTO</code>, <code>ADICIONAL_GARAGEM</code> = 300</td>
+      <td>properties <code>quartos</code> e <code>garagem</code> com validação; <code>_calcular_adicionais()</code></td></tr>
+  <tr><td><code>Apartamento</code></td>
+      <td><code>ALUGUEL_BASE</code> = 700, <code>ADICIONAL_SEGUNDO_QUARTO</code> = 200, <code>_possui_criancas</code>, <code>PERCENTUAL_DESCONTO_SEM_CRIANCAS</code> = 5%</td>
+      <td>sobrescreve <code>_calcular_descontos()</code> e <code>descricao()</code></td></tr>
+  <tr><td><code>Casa</code></td>
+      <td><code>ALUGUEL_BASE</code> = 900, <code>ADICIONAL_SEGUNDO_QUARTO</code> = 250</td>
+      <td>herda tudo de <code>ImovelComQuartos</code></td></tr>
+  <tr><td><code>Estudio</code></td>
+      <td><code>ALUGUEL_BASE</code> = 1.200, <code>_pacote_estacionamento</code>, <code>_vagas_adicionais</code>, <code>VALOR_PACOTE_ESTACIONAMENTO</code> = 250, <code>VALOR_VAGA_ADICIONAL</code> = 60</td>
+      <td>properties com validação; <code>total_vagas</code>; <code>_calcular_adicionais()</code>; <code>descricao()</code></td></tr>
+  <tr><td><code>ItemOrcamento</code></td>
+      <td><code>descricao</code>, <code>valor</code> (negativo = desconto)</td>
+      <td>— (registro imutável de uma linha da composição)</td></tr>
+  <tr><td><code>TaxaContratual</code></td>
+      <td><code>VALOR_TOTAL</code> = 2.000, <code>MAXIMO_PARCELAS</code> = 5, <code>_parcelas</code></td>
+      <td><code>valores_das_parcelas()</code>, <code>parcela_do_mes(mes)</code>, <code>descricao()</code></td></tr>
+  <tr><td><code>Orcamento</code></td>
+      <td><code>_cliente</code>, <code>_imovel</code>, <code>_taxa</code>, <code>MESES_PROJECAO</code> = 12</td>
+      <td><code>aluguel_mensal</code>, <code>projecao_12_meses()</code>, <code>total_aluguel_no_ano()</code>, <code>total_no_ano()</code>, <code>resumo()</code></td></tr>
+  <tr><td><code>LinhaProjecao</code></td>
+      <td><code>mes</code>, <code>aluguel</code>, <code>parcela_taxa</code>, <code>numero_parcela</code>, <code>total_mes</code>, <code>total_acumulado</code></td>
+      <td>— (registro imutável de um mês)</td></tr>
+  <tr><td><code>ExportadorCSV</code></td>
+      <td><code>pasta_saida</code>, <code>CABECALHO</code>, <code>SEPARADOR</code> = ";"</td>
+      <td><code>nome_arquivo(orcamento)</code>, <code>exportar(orcamento)</code></td></tr>
+  <tr><td><code>InterfaceConsole</code></td>
+      <td><code>_entrada</code> (input), <code>_saida</code> (print), <code>_exportador</code></td>
+      <td><code>ler_texto()</code>, <code>ler_opcao()</code>, <code>ler_sim_nao()</code>, <code>ler_inteiro()</code>, <code>coletar_orcamento()</code>, <code>executar()</code></td></tr>
+</table>
+<p class="nota">Os valores em dinheiro usam <code>Decimal</code> em vez de <code>float</code>, porque <code>float</code> não guarda
+centavos com exatidão. O arquivo <code>dinheiro.py</code> concentra o arredondamento e a formatação em reais.</p>
+</div>
+
+<!-- 5 -->
+<div class="sec">
+<h1>5. Pensamento algorítmico e Orientação a Objetos na solução</h1>
+<h2>Pensamento algorítmico</h2>
+<ul>
+  <li><b>Decomposição:</b> o problema grande ("fazer um orçamento") foi quebrado em partes menores:
+    perguntar e validar, calcular o aluguel, dividir a taxa, projetar os meses, mostrar e salvar.</li>
+  <li><b>Reconhecimento de padrões:</b> casa e apartamento têm a mesma estrutura (base + 2º quarto + garagem),
+    só mudam os valores. Esse padrão virou a classe <code>ImovelComQuartos</code>. Todas as perguntas de
+    resposta fechada seguem o mesmo padrão "pergunta → valida → repete se errado", que virou os métodos
+    <code>ler_opcao</code>, <code>ler_sim_nao</code> e <code>ler_inteiro</code>.</li>
+  <li><b>Abstração:</b> para calcular o total, o orçamento não precisa saber se o imóvel é casa ou estúdio;
+    basta saber que todo imóvel tem uma composição de linhas que somadas dão o aluguel.</li>
+  <li><b>Algoritmo:</b> a ordem das operações segue o enunciado: primeiro os adicionais, depois o desconto.
+    A projeção é um laço de 12 repetições, e a divisão da taxa usa centavos inteiros e o resto da divisão
+    para nunca perder nem sobrar dinheiro.</li>
+</ul>
+<h2>Orientação a Objetos</h2>
+<ul>
+  <li><b>Encapsulamento:</b> os atributos são protegidos (<code>_quartos</code>, <code>_parcelas</code>...) e só
+    mudam por <i>properties</i> que validam. Uma casa com 3 quartos ou uma taxa em 6 vezes simplesmente não
+    pode ser criada.</li>
+  <li><b>Herança:</b> o cálculo final (<code>valor_mensal</code>) foi escrito uma vez só, em <code>Imovel</code>.
+    A regra do 2º quarto e da garagem também, em <code>ImovelComQuartos</code>. <code>Casa</code> só declara os
+    seus valores.</li>
+  <li><b>Polimorfismo:</b> o mesmo método <code>valor_mensal()</code> dá resultados diferentes para cada tipo
+    de imóvel, porque cada classe responde do seu jeito a <code>_calcular_adicionais()</code> e
+    <code>_calcular_descontos()</code>. Só o <code>Apartamento</code> tem desconto.</li>
+  <li><b>Separação de responsabilidades:</b> regra de negócio, montagem do orçamento, gravação do CSV e
+    conversa com o usuário estão em classes diferentes. Mudar o formato do CSV, por exemplo, não mexe nas
+    regras de cálculo.</li>
+  <li><b>Facilidade de manutenção:</b> se a R.M Imóveis criar um novo tipo de imóvel, basta uma nova classe
+    filha de <code>Imovel</code>; se um valor mudar, ele está em um único lugar (constante da classe).</li>
+</ul>
+</div>
+
+<!-- 6 -->
+<div class="sec">
+<h1>6. Testes e validação</h1>
+<p>O projeto tem 44 testes automatizados (biblioteca <code>unittest</code>, que já vem com o Python), todos
+passando. Eles conferem cada regra de valor, os limites das validações (0 ou 3 quartos, 6 parcelas, vagas
+negativas), a divisão da taxa em 1 a 5 parcelas, o conteúdo do CSV e a interface com respostas simuladas,
+inclusive respostas inválidas.</p>
+<p>Além disso, o programa foi executado de verdade nos cenários abaixo. Os valores são os que o próprio
+programa mostrou (a saída completa de cada execução está na pasta <code>evidencias/</code> do repositório):</p>
+<table>
+  <tr><th>Cenário</th><th>Composição</th><th>Aluguel mensal</th><th>Taxa</th><th>Total no 1º ano</th></tr>
+  <tr><td>Apartamento, 2 quartos, garagem, sem crianças</td><td>700 + 200 + 300 = 1.200 − 5% (60)</td><td class="num">R$ 1.140,00</td><td>5x de 400,00</td><td class="num">R$ 15.680,00</td></tr>
+  <tr><td>Casa, 2 quartos, garagem</td><td>900 + 250 + 300</td><td class="num">R$ 1.450,00</td><td>3x (666,67 + 666,67 + 666,66)</td><td class="num">R$ 19.400,00</td></tr>
+  <tr><td>Estúdio, pacote + 3 vagas extras</td><td>1.200 + 250 + 3 × 60</td><td class="num">R$ 1.630,00</td><td>à vista</td><td class="num">R$ 21.560,00</td></tr>
+  <tr><td>Apartamento, 1 quarto, com crianças (com 9 respostas inválidas recusadas)</td><td>700</td><td class="num">R$ 700,00</td><td>2x de 1.000,00</td><td class="num">R$ 10.400,00</td></tr>
+  <tr><td>Casa, 1 quarto, sem garagem</td><td>900</td><td class="num">R$ 900,00</td><td>à vista</td><td class="num">R$ 12.800,00</td></tr>
+  <tr><td>Estúdio sem estacionamento</td><td>1.200</td><td class="num">R$ 1.200,00</td><td>4x de 500,00</td><td class="num">R$ 16.400,00</td></tr>
+</table>
+<p>Trecho do CSV gerado no cenário da casa (separador ";"):</p>
+<pre>Mes;Aluguel mensal (R$);Parcela da taxa contratual (R$);Parcela n.;Total do mes (R$);Total acumulado (R$)
+1;1450,00;666,67;1/3;2116,67;2116,67
+2;1450,00;666,67;2/3;2116,67;4233,34
+3;1450,00;666,66;3/3;2116,66;6350,00
+4;1450,00;0,00;-;1450,00;7800,00
+...
+12;1450,00;0,00;-;1450,00;19400,00
+TOTAL;17400,00;2000,00;;19400,00;</pre>
+</div>
+
+<!-- 7 -->
+<div class="sec">
+<h1>7. Referências</h1>
+<ul>
+  <li>PYTHON SOFTWARE FOUNDATION. <i>Documentação do Python</i>. Disponível em: https://www.python.org/doc/. Tópicos usados: classes, <code>abc</code>, <code>dataclasses</code>, <code>decimal</code>, <code>csv</code>, <code>unittest</code>.</li>
+  <li>DEVMEDIA. <i>Guia Completo de Python</i>. Disponível em: https://www.devmedia.com.br/curso/python.</li>
+  <li>LEARNPYTHON.ORG. <i>Tutoriais interativos de Python</i>. Disponível em: https://learnpython.org/.</li>
+  <li>GOOGLE DEVELOPERS. <i>Google's Python Class</i>. Disponível em: https://developers.google.com/edu/python?hl=pt-br.</li>
+  <li>APRENDENDO DO INÍCIO COM DANIEL. Canal no YouTube. Disponível em: https://www.youtube.com/@aprendendo.doinicio.</li>
+  <li>UNIFECAF. Materiais da disciplina <i>Algorithmic Thinking &amp; Introduction to Object-Oriented Programming</i> no AVA.</li>
+</ul>
+<p class="nota">Repositório do projeto: <span class="preencher">colar aqui o link do GitHub</span></p>
+</div>
+
+</body>
+</html>

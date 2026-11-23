@@ -47,11 +47,11 @@ Legenda: ✅ feito e verificado · 🟡 preparado, depende do Eduardo · ⬜ pen
 | E07 | Arquivo .csv funcional com 12 meses | Prática | ✅ (`exemplos/`) |
 | E08 | README com instruções de execução | Prática | ✅ |
 | E09 | **Link do repositório GitHub** | Prática | 🟡 repositório local pronto; criar o remoto e enviar é com o Eduardo |
-| E10 | PDF: análise do problema e regras | Teórica 25% | ✅ rascunho em `docs/parte-teorica/` |
-| E11 | PDF: entradas, processamentos e saídas | Teórica | ✅ |
-| E12 | PDF: fluxograma | Teórica | ✅ |
-| E13 | PDF: estrutura de classes (atributos e métodos) | Teórica | ✅ |
-| E14 | PDF: justificativa de pensamento algorítmico + POO | Teórica | ✅ |
+| E10 | PDF: análise do problema e regras | Teórica 25% | ✅ `docs/parte-teorica/Parte Teorica - RentSmart - Eduardo.pdf` (seção 1) |
+| E11 | PDF: entradas, processamentos e saídas | Teórica | ✅ seção 2 |
+| E12 | PDF: fluxograma | Teórica | ✅ seção 3 (`docs/fluxograma.svg`) |
+| E13 | PDF: estrutura de classes (atributos e métodos) | Teórica | ✅ seção 4 |
+| E14 | PDF: justificativa de pensamento algorítmico + POO | Teórica | ✅ seção 5 |
 | E15 | Documentação corresponde ao programa desenvolvido | Teórica | ✅ (gerada a partir do código final) |
 | E16 | Vídeo pitch de até 4 min com tela (problema, fluxograma, classes, código, execução, CSV, POO) | Vídeo 25% | 🟡 roteiro em `docs/roteiro-video.md`; gravar e publicar é com o Eduardo |
 | E17 | Vídeo publicado no YouTube (não listado) ou plataforma acessível | Vídeo | 🟡 Eduardo |
@@ -71,3 +71,9 @@ Legenda: ✅ feito e verificado · 🟡 preparado, depende do Eduardo · ⬜ pen
 | D08 | Em que meses a taxa é cobrada na projeção? | Nos primeiros meses do contrato (parcela 1 no mês 1, até a parcela N no mês N). |
 | D09 | Formato do CSV | Separador `;`, vírgula decimal e UTF-8 com BOM, para abrir direto no Excel em português. Uma linha por mês (12) + linha TOTAL. |
 | D10 | Prazo de entrega | Não consta no documento: confirmar no AVA. |
+
+## E. Pendências do Eduardo
+
+Ver [`O-QUE-FALTA-ENTREGAR.md`](O-QUE-FALTA-ENTREGAR.md): nome do professor na capa do PDF, criar o
+repositório no GitHub e enviar, colocar o link no PDF, gravar e publicar o vídeo, conferir os links e
+enviar no AVA.

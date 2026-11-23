@@ -1,0 +1,59 @@
+# Cenário: Apartamento, 2 quartos, garagem, sem crianças, taxa em 5x
+# Executado em: 2026-11-23 07:37:17 | Python 3.14.6 | Windows
+# Comando: printf '<entradas>' | python main.py
+# Entradas enviadas (uma por linha): Ana Souza|1|2|S|N|5|N|
+# Abaixo, a saída real do programa, sem edição. As respostas digitadas não aparecem porque chegaram pelo pipe.
+
+================================================================
+   RentSmart | Sistema de Orçamento de Locação | R.M Imóveis    
+================================================================
+Nome do cliente: 
+Tipos de imóvel:
+  1 - Apartamento (base R$ 700,00)
+  2 - Casa        (base R$ 900,00)
+  3 - Estúdio     (base R$ 1.200,00)
+Escolha o tipo de imóvel (1, 2 ou 3): Quantos quartos? (1 ou 2): Deseja vaga de garagem (R$ 300,00)? (S/N): O cliente possui crianças? (S/N): 
+Taxa contratual de R$ 2.000,00. Em quantas parcelas? (1 a 5): 
+================================================================
+         RentSmart | R.M Imóveis | ORÇAMENTO DE LOCAÇÃO         
+================================================================
+Cliente: Ana Souza
+Imóvel : Apartamento com 2 quartos, com vaga de garagem, sem crianças
+----------------------------------------------------------------
+1) COMPOSIÇÃO DO ALUGUEL MENSAL
+  Aluguel-base (apartamento)                           R$ 700,00
+  (+) Adicional: 2º quarto                             R$ 200,00
+  (+) Adicional: 1 vaga de garagem                     R$ 300,00
+  = Subtotal (base + adicionais)                     R$ 1.200,00
+  (-) Desconto: 5% (cliente sem crianças)              -R$ 60,00
+  ALUGUEL MENSAL                                     R$ 1.140,00
+----------------------------------------------------------------
+2) TAXA CONTRATUAL (cobrada à parte, NÃO faz parte do aluguel)
+  Valor total da taxa                                R$ 2.000,00
+  Parcelamento escolhido: 5x de R$ 400,00 sem juros
+  Cobrança: do mês 1 ao mês 5 do contrato
+----------------------------------------------------------------
+3) PROJEÇÃO DOS 12 PRIMEIROS MESES
+  Mês        Aluguel         Taxa (parc.)    Total do mês
+    1    R$ 1.140,00        R$ 400,00 1/5     R$ 1.540,00
+    2    R$ 1.140,00        R$ 400,00 2/5     R$ 1.540,00
+    3    R$ 1.140,00        R$ 400,00 3/5     R$ 1.540,00
+    4    R$ 1.140,00        R$ 400,00 4/5     R$ 1.540,00
+    5    R$ 1.140,00        R$ 400,00 5/5     R$ 1.540,00
+    6    R$ 1.140,00                    -     R$ 1.140,00
+    7    R$ 1.140,00                    -     R$ 1.140,00
+    8    R$ 1.140,00                    -     R$ 1.140,00
+    9    R$ 1.140,00                    -     R$ 1.140,00
+   10    R$ 1.140,00                    -     R$ 1.140,00
+   11    R$ 1.140,00                    -     R$ 1.140,00
+   12    R$ 1.140,00                    -     R$ 1.140,00
+----------------------------------------------------------------
+  Total de aluguel em 12 meses                      R$ 13.680,00
+  Total da taxa contratual                           R$ 2.000,00
+  TOTAL PREVISTO NO 1º ANO                          R$ 15.680,00
+================================================================
+
+Projeção de 12 meses salva em: saida\projecao_12_meses_ana_souza_apartamento.csv
+
+Deseja fazer outro orçamento? (S/N): Obrigado por usar o RentSmart!
+# Código de saída: 0

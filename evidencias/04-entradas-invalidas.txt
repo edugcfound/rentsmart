@@ -1,0 +1,67 @@
+# Cenário: Entradas inválidas sendo recusadas e repetidas (apartamento 1 quarto com crianças, 2x)
+# Executado em: 2026-11-23 07:37:19 | Python 3.14.6 | Windows
+# Comando: printf '<entradas>' | python main.py
+# Entradas enviadas (uma por linha): |Daniel Rocha|4|abc|1|3|dois|1|talvez|N|S|0|6|2,5|2|N|
+# Abaixo, a saída real do programa, sem edição. As respostas digitadas não aparecem porque chegaram pelo pipe.
+
+================================================================
+   RentSmart | Sistema de Orçamento de Locação | R.M Imóveis    
+================================================================
+Nome do cliente:   [!] Este campo não pode ficar vazio.
+Nome do cliente: 
+Tipos de imóvel:
+  1 - Apartamento (base R$ 700,00)
+  2 - Casa        (base R$ 900,00)
+  3 - Estúdio     (base R$ 1.200,00)
+Escolha o tipo de imóvel (1, 2 ou 3):   [!] Opção inválida. Digite uma destas: 1, 2, 3.
+Escolha o tipo de imóvel (1, 2 ou 3):   [!] Opção inválida. Digite uma destas: 1, 2, 3.
+Escolha o tipo de imóvel (1, 2 ou 3): Quantos quartos? (1 ou 2):   [!] O número deve ser entre 1 e 2.
+Quantos quartos? (1 ou 2):   [!] Digite um número inteiro (sem letras, vírgula ou ponto).
+Quantos quartos? (1 ou 2): Deseja vaga de garagem (R$ 300,00)? (S/N):   [!] Responda S (sim) ou N (não).
+Deseja vaga de garagem (R$ 300,00)? (S/N): O cliente possui crianças? (S/N): 
+Taxa contratual de R$ 2.000,00. Em quantas parcelas? (1 a 5):   [!] O número deve ser entre 1 e 5.
+
+Taxa contratual de R$ 2.000,00. Em quantas parcelas? (1 a 5):   [!] O número deve ser entre 1 e 5.
+
+Taxa contratual de R$ 2.000,00. Em quantas parcelas? (1 a 5):   [!] Digite um número inteiro (sem letras, vírgula ou ponto).
+
+Taxa contratual de R$ 2.000,00. Em quantas parcelas? (1 a 5): 
+================================================================
+         RentSmart | R.M Imóveis | ORÇAMENTO DE LOCAÇÃO         
+================================================================
+Cliente: Daniel Rocha
+Imóvel : Apartamento com 1 quarto, sem garagem, com crianças
+----------------------------------------------------------------
+1) COMPOSIÇÃO DO ALUGUEL MENSAL
+  Aluguel-base (apartamento)                           R$ 700,00
+  ALUGUEL MENSAL                                       R$ 700,00
+----------------------------------------------------------------
+2) TAXA CONTRATUAL (cobrada à parte, NÃO faz parte do aluguel)
+  Valor total da taxa                                R$ 2.000,00
+  Parcelamento escolhido: 2x de R$ 1.000,00 sem juros
+  Cobrança: do mês 1 ao mês 2 do contrato
+----------------------------------------------------------------
+3) PROJEÇÃO DOS 12 PRIMEIROS MESES
+  Mês        Aluguel         Taxa (parc.)    Total do mês
+    1      R$ 700,00      R$ 1.000,00 1/2     R$ 1.700,00
+    2      R$ 700,00      R$ 1.000,00 2/2     R$ 1.700,00
+    3      R$ 700,00                    -       R$ 700,00
+    4      R$ 700,00                    -       R$ 700,00
+    5      R$ 700,00                    -       R$ 700,00
+    6      R$ 700,00                    -       R$ 700,00
+    7      R$ 700,00                    -       R$ 700,00
+    8      R$ 700,00                    -       R$ 700,00
+    9      R$ 700,00                    -       R$ 700,00
+   10      R$ 700,00                    -       R$ 700,00
+   11      R$ 700,00                    -       R$ 700,00
+   12      R$ 700,00                    -       R$ 700,00
+----------------------------------------------------------------
+  Total de aluguel em 12 meses                       R$ 8.400,00
+  Total da taxa contratual                           R$ 2.000,00
+  TOTAL PREVISTO NO 1º ANO                          R$ 10.400,00
+================================================================
+
+Projeção de 12 meses salva em: saida\projecao_12_meses_daniel_rocha_apartamento.csv
+
+Deseja fazer outro orçamento? (S/N): Obrigado por usar o RentSmart!
+# Código de saída: 0
