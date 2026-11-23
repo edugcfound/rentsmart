@@ -46,7 +46,7 @@ Legenda: ✅ feito e verificado · 🟡 preparado, depende do Eduardo · ⬜ pen
 | E06 | Exibição clara do orçamento final | Prática | ✅ |
 | E07 | Arquivo .csv funcional com 12 meses | Prática | ✅ (`exemplos/`) |
 | E08 | README com instruções de execução | Prática | ✅ |
-| E09 | **Link do repositório GitHub** | Prática | 🟡 repositório local pronto; criar o remoto e enviar é com o Eduardo |
+| E09 | **Link do repositório GitHub** | Prática | ✅ https://github.com/edugcfound/rentsmart (público) |
 | E10 | PDF: análise do problema e regras | Teórica 25% | ✅ `docs/parte-teorica/Parte Teorica - RentSmart - Eduardo.pdf` (seção 1) |
 | E11 | PDF: entradas, processamentos e saídas | Teórica | ✅ seção 2 |
 | E12 | PDF: fluxograma | Teórica | ✅ seção 3 (`docs/fluxograma.svg`) |
@@ -74,6 +74,5 @@ Legenda: ✅ feito e verificado · 🟡 preparado, depende do Eduardo · ⬜ pen
 
 ## E. Pendências do Eduardo
 
-Ver [`O-QUE-FALTA-ENTREGAR.md`](O-QUE-FALTA-ENTREGAR.md): nome do professor na capa do PDF, criar o
-repositório no GitHub e enviar, colocar o link no PDF, gravar e publicar o vídeo, conferir os links e
+Ver [`O-QUE-FALTA-ENTREGAR.md`](O-QUE-FALTA-ENTREGAR.md): nome do professor na capa do PDF, gravar e publicar o vídeo, conferir os links e
 enviar no AVA.

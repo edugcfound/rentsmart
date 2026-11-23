@@ -6,7 +6,7 @@ o aluguel foi formado, apresenta a taxa contratual separada do aluguel e gera um
 projeção dos 12 primeiros meses**.
 
 Trabalho da disciplina *Algorithmic Thinking & Introduction to Object-Oriented Programming* —
-UniFECAF. Aluno: Eduardo Gomes Costa.
+UniFECAF. Aluno: Eduardo Gomes Costa. Repositório: https://github.com/edugcfound/rentsmart
 
 ## Como executar
 
