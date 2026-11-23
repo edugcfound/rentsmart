@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+# CSVs gerados em cada execucao (os exemplos oficiais ficam em exemplos/)
+saida/
